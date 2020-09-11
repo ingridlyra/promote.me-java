@@ -49,11 +49,9 @@ public class Main {
 				
 				
 				if(uOpc == 1) {
-					//exibir o perfil
+					//Visualizar feedbacks recebidos
 				} else if (uOpc == 2) {
-					//Perguntar onde deseja add ou remover
-				} else if (uOpc == 3) {
-					//Alterar senha do usuário
+					//Enviar um feedback
 				} else {
 					System.err.print("Não há essa opção no sistema, tente novamente");
 				}
