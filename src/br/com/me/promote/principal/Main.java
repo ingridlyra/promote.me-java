@@ -60,7 +60,21 @@ public class Main {
 				
 				
 			} else if (opcao == 3) {
-				//chamar aqui crescimento
+				
+				int cOpc;
+				System.out.print("Digite o número da opção que você deseja: \n 1- Visualizar requisitos de promoção \n 2- Visualizar/candidatar-se à uma vaga \n ");
+				cOpc = sc1.nextInt();
+				
+				
+				if(cOpc == 1) {
+					//executar funcao de match
+				} else if (cOpc == 2) {
+					//Mostrar carreiras dentro da empresa
+				} else {
+					System.err.print("Não há essa opção no sistema, tente novamente");
+				}
+				
+				
 			} else {
 				System.err.print("Não há essa opção no sistema, tente novamente");
 			}
