@@ -1,27 +1,47 @@
 package br.com.me.promote.principal;
 
+import java.time.LocalDate;
+
 public class Usuario {
-	private String usuario;
-	private String senha;
+	private int login;
+	private String nomeUsuario;
+	private int senhaUsuario;
 	private Categoria categoria;
+	private LocalDate dtAdmissaoVaga;
 	
-	public String getUsuario() {
-		return usuario;
+	public Usuario(int login, String nome, int senha) {
+		this.login = login;
+		this.nomeUsuario = nome;
+		this.senhaUsuario = senha;
+	}
+	
+	public int getLogin() {
+		return login;
 	}
 
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setLogin(int login) {
+		login = login;
 	}
 
 
-	public String getSenha() {
-		return senha;
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
 
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
+
+
+	public int getSenhaUsuario() {
+		return senhaUsuario;
+	}
+
+
+	public void setSenhaUsuario(int senhaUsuario) {
+		this.senhaUsuario = senhaUsuario;
 	}
 
 
@@ -33,7 +53,18 @@ public class Usuario {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+
+
+	public LocalDate getDtAdmissaoVaga() {
+		return dtAdmissaoVaga;
+	}
+
+
+	public void setDtAdmissaoVaga(LocalDate dtAdmissaoVaga) {
+		this.dtAdmissaoVaga = dtAdmissaoVaga;
+	}
+
+
 	boolean Valido() {
 		//TODO: COLOCAR AQUI OS CASOS DE USUARIOS INVALIDOS
 		
