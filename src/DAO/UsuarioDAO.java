@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import java.sql.ResultSet;
 import Utils.Connector;
-import br.com.me.promote.principal.Usuario;
+import br.com.me.promote.Usuario;
 
 public class UsuarioDAO {
 	public Usuario getUsuario(int cd_login) {		
@@ -23,7 +23,6 @@ public class UsuarioDAO {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
