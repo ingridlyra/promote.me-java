@@ -1,4 +1,4 @@
-package br.com.me.promote.system;
+package br.com.me.promote;
 
 import java.util.ArrayList;
 

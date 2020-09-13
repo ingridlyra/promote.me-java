@@ -1,6 +1,5 @@
-package br.com.me.promote.principal;
+package br.com.me.promote;
 
-import br.com.me.promote.system.*;
 import java.util.Scanner;
 
 public class Main {
