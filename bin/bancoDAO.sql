@@ -72,3 +72,5 @@ VALUES (2, 10, 1234, 'wagner', 'colaborador', TO_DATE('26-03-2008', 'dd-mm-yyyy'
 
 INSERT INTO T_PM_FEEDBACK(cd_feedback, cd_login, vl_feedback, ds_feedback, dt_envio, cd_login_receptor)
 VALUES (1, 1, 4, 'muit bom funcionario', TO_DATE('26-03-2008', 'dd-mm-yyyy'), 2);
+
+SELECT * FROM T_PM_USUARIO;

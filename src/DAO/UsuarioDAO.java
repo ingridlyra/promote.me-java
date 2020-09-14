@@ -14,7 +14,7 @@ public class UsuarioDAO {
 		try {
 			Connector connector = new Connector();
 			ResultSet result = connector.ExecuteQuery("SELECT * FROM " + table + " WHERE cd_login=" + cd_login);
-			
+
 			while (result.next()) {
 				Integer login = result.getInt("cd_login");
 				Integer cdVaga = result.getInt("cd_vaga");
@@ -76,6 +76,28 @@ public class UsuarioDAO {
 			
 			if (success) {
 				System.out.println("Usuario Atualizado!");
+				return true;
+			} else {
+				System.out.println("Algo deu errado");
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean DeleteUsuario(int login) {
+		String query = "DELETE FROM " + table + " WHERE cd_login=" + login;
+
+		try {
+			Connector connector = new Connector();
+			Boolean success = connector.ExecuteUpdate(query);
+			
+			if (success) {
+				System.out.println("Usuario Deletado!");
 				return true;
 			} else {
 				System.out.println("Algo deu errado");

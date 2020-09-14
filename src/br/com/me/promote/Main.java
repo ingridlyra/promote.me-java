@@ -20,6 +20,14 @@ public class Main {
 		Usuario a = userDAO.getUsuario(3);
 		
 		System.out.println(a.getNomeUsuario());
+		
+		userDAO.DeleteUsuario(3);
+
+		Usuario b = userDAO.getUsuario(3);
+		
+		if (b == null) {
+			System.out.println("deletado");
+		}
 	}
 
 	public static void main(String[] args) {
@@ -27,8 +35,6 @@ public class Main {
 		Crescimento crescimento;
 		Feedback feedback;
 		Usuario usuario;
-		
-		test();
 		
 		System.out.println("*** Bem-vindx ao Promote.me \n ***");
 		//TODO: CHAMAR AS CLASSES PRINCIPAIS
