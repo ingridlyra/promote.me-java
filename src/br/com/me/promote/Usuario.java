@@ -6,13 +6,17 @@ public class Usuario {
 	private int login;
 	private String nomeUsuario;
 	private int senhaUsuario;
+	private int codigoVaga;
 	private Categoria categoria;
 	private LocalDate dtAdmissaoVaga;
 	
-	public Usuario(int login, String nome, int senha) {
+	public Usuario(int login, String nome, int senha, int codigoVaga, Categoria categoria, LocalDate dtAdmissaoVaga) {
 		this.login = login;
 		this.nomeUsuario = nome;
 		this.senhaUsuario = senha;
+		this.codigoVaga = codigoVaga;
+		this.categoria = categoria;
+		this.dtAdmissaoVaga = dtAdmissaoVaga;
 	}
 	
 	public int getLogin() {
@@ -69,6 +73,14 @@ public class Usuario {
 		//TODO: COLOCAR AQUI OS CASOS DE USUARIOS INVALIDOS
 		
 		return true;	
+	}
+
+	public int getCodigoVaga() {
+		return codigoVaga;
+	}
+
+	public void setCodigoVaga(int codigoVaga) {
+		this.codigoVaga = codigoVaga;
 	}
 		
 }

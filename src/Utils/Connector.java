@@ -35,6 +35,19 @@ public class Connector {
 		return null;
 	}
 	
+	public Boolean ExecuteUpdate(String query) {
+		try {
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			System.out.println("Erro ao executar query");
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
 	public void Close() {
 		try {
 			con.close();

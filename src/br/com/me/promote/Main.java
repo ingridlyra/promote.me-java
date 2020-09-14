@@ -1,16 +1,29 @@
 package br.com.me.promote;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
+import DAO.UsuarioDAO;
+
 public class Main {
+	
+	public void test() {
+		UsuarioDAO userDAO = new UsuarioDAO();
+		
+		Usuario us = new Usuario(3, "carlito", 1234, 10, Categoria.colaborador, LocalDate.now());
+		
+		userDAO.CreateUsuario(us);
+		
+		Usuario a = userDAO.getUsuario(3);
+		
+		System.out.println(a.getNomeUsuario());
+	}
 
 	public static void main(String[] args) {
 		Logar acesso;
 		Crescimento crescimento;
 		Feedback feedback;
 		Usuario usuario;
-		
-		
 		
 		System.out.println("*** Bem-vindx ao Promote.me \n ***");
 		//TODO: CHAMAR AS CLASSES PRINCIPAIS
