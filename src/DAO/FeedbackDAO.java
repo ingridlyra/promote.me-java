@@ -13,14 +13,14 @@ public class FeedbackDAO {
 			ResultSet result = connector.ExecuteQuery("SELECT * FROM T_PM_FEEDBACK WHERE cd_feedback=" + cd_feedback);
 				
 			while (result.next()) {
-				String usuarioEnvio = result.getString("usuarioEnvio");
-				String mensagem = result.getString("ds_feedback");
-				String nomeUsuario = result.getString("nm_usuario");
+				String usuarioEnvio = result.getString("cd_login");
+				String usuarioReceptor = result.getString("cd_login_receptor");
+				String descricao = result.getString("ds_feedback");
 				double nota = result.getDouble("vl_feedback");
-				LocalDate dataEnvio = result.getDate("vl_feedback").toLocalDate();
+				LocalDate dataEnvio = result.getDate("dt_envio").toLocalDate();
 					
 				connector.Close();
-				return new Feedback(usuarioEnvio, mensagem, nota, dataEnvio);
+				return new Feedback(usuarioEnvio, usuarioReceptor, descricao, nota, dataEnvio);
 		}
 				
 				
