@@ -61,4 +61,31 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public Boolean UpdateUsuario(Usuario newUsuario) {
+		String query = "UPDATE " + table + " SET "
+				+ "cd_vaga=" + newUsuario.getCodigoVaga()     +  ","
+				+ "cd_senha=" + newUsuario.getSenhaUsuario()  +  ","
+				+ "nm_usuario='" + newUsuario.getNomeUsuario() + "',"
+				+ "dt_admissao_vag=(TO_DATE('" + newUsuario.getDtAdmissaoVaga().toString() + "', 'yyyy-mm-dd'))"
+				+ "WHERE cd_login=" + newUsuario.getLogin();
+
+		try {
+			Connector connector = new Connector();
+			Boolean success = connector.ExecuteUpdate(query);
+			
+			if (success) {
+				System.out.println("Usuario Atualizado!");
+				return true;
+			} else {
+				System.out.println("Algo deu errado");
+				return false;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

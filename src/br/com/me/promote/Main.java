@@ -7,12 +7,15 @@ import DAO.UsuarioDAO;
 
 public class Main {
 	
-	public void test() {
+	public static void test() {
 		UsuarioDAO userDAO = new UsuarioDAO();
 		
 		Usuario us = new Usuario(3, "carlito", 1234, 10, Categoria.colaborador, LocalDate.now());
 		
 		userDAO.CreateUsuario(us);
+		
+		us.setNomeUsuario("jose");
+		userDAO.UpdateUsuario(us);
 		
 		Usuario a = userDAO.getUsuario(3);
 		
@@ -24,6 +27,8 @@ public class Main {
 		Crescimento crescimento;
 		Feedback feedback;
 		Usuario usuario;
+		
+		test();
 		
 		System.out.println("*** Bem-vindx ao Promote.me \n ***");
 		//TODO: CHAMAR AS CLASSES PRINCIPAIS
