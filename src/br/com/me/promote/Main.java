@@ -32,7 +32,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		Logar acesso;
-		Crescimento crescimento;
 		Feedback feedback;
 		Usuario usuario;
 		
@@ -44,7 +43,7 @@ public class Main {
 		Scanner sc1 = new Scanner(System.in);
 		
 		while(isRunning) {
-			System.out.print("Digite o número da opção que você deseja: \n 1- Perfil \n 2- Feedback \n 3 - Carreira\n");
+			System.out.print("Digite o número da opção que você deseja: \n 1- Perfil \n 2- Feedback \n");
 			opcao = sc1.nextInt();
 			
 			
@@ -57,7 +56,7 @@ public class Main {
 				if(uOpc == 1) {
 					//exibir o perfil
 				} else if (uOpc == 2) {
-					//Perguntar onde deseja add ou remover
+					//Perguntar onde deseja add ou remover skills
 				} else if (uOpc == 3) {
 					//Alterar senha do usuário
 				} else {
@@ -75,22 +74,6 @@ public class Main {
 					//Visualizar feedbacks recebidos
 				} else if (uOpc == 2) {
 					//Enviar um feedback
-				} else {
-					System.err.print("Não há essa opção no sistema, tente novamente");
-				}
-				
-				
-			} else if (opcao == 3) {
-				
-				int cOpc;
-				System.out.print("Digite o número da opção que você deseja: \n 1- Visualizar requisitos de promoção \n 2- Visualizar/candidatar-se à uma vaga \n ");
-				cOpc = sc1.nextInt();
-				
-				
-				if(cOpc == 1) {
-					//executar funcao de match
-				} else if (cOpc == 2) {
-					//Mostrar carreiras dentro da empresa
 				} else {
 					System.err.print("Não há essa opção no sistema, tente novamente");
 				}
