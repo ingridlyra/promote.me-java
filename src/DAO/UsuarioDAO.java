@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.sql.ResultSet;
 import Utils.Connector;
 import br.com.me.promote.Categoria;
@@ -33,6 +34,31 @@ public class UsuarioDAO {
 		}
 		
 		return null;
+	}
+	
+	public ArrayList<Usuario> getAllUsuarios() {
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		try {
+			Connector connector = new Connector();
+			ResultSet result = connector.ExecuteQuery("SELECT * FROM " + table);
+
+			while (result.next()) {
+				Integer login = result.getInt("cd_login");
+				Integer cdVaga = result.getInt("cd_vaga");
+				Integer senhaUsuario = result.getInt("cd_senha");
+				String nomeUsuario = result.getString("nm_usuario");
+				String categoriaString = result.getString("ds_categoria");
+				LocalDate admissao = result.getDate("dt_admissao_vag").toLocalDate();
+				
+				usuarios.add(new Usuario(login, nomeUsuario, senhaUsuario, cdVaga, Categoria.valueOf(categoriaString), admissao));
+			}
+			
+			connector.Close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return usuarios;
 	}
 	
 	public void CreateUsuario(Usuario usuario) {

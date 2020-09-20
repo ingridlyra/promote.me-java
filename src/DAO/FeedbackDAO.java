@@ -5,16 +5,19 @@ import java.time.LocalDate;
 import java.sql.ResultSet;
 import Utils.Connector;
 import br.com.me.promote.Feedback;
+import br.com.me.promote.Usuario;
 
-public class FeedbackDAO {	
-	public Feedback getFeedback(int cd_feedback) {		
+public class FeedbackDAO {
+	String table = "T_PM_FEEDBACK";
+	
+	public Feedback getFeedback(int cd_feedback) {	
 		try {
 			Connector connector = new Connector();
-			ResultSet result = connector.ExecuteQuery("SELECT * FROM T_PM_FEEDBACK WHERE cd_feedback=" + cd_feedback);
+			ResultSet result = connector.ExecuteQuery("SELECT * FROM " + table + " WHERE cd_feedback=" + cd_feedback);
 				
 			while (result.next()) {
-				String usuarioEnvio = result.getString("cd_login");
-				String usuarioReceptor = result.getString("cd_login_receptor");
+				int usuarioEnvio = result.getInt("cd_login");
+				int usuarioReceptor = result.getInt("cd_login_receptor");
 				String descricao = result.getString("ds_feedback");
 				double nota = result.getDouble("vl_feedback");
 				LocalDate dataEnvio = result.getDate("dt_envio").toLocalDate();
@@ -24,11 +27,39 @@ public class FeedbackDAO {
 		}
 				
 				
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return null;
 	}
+	
+	public void CreateFeedback(Feedback feedback) {
+		String query = "INSERT INTO " + table + " (cd_login, vl_feedback, ds_feedback, dt_envio, cd_login_receptor) "
+	                   + "VALUES ("
+				       + feedback.getUsuarioEnvio()                        + ", "
+					   + feedback.getNota()                                + ", "
+	                   + "'" + feedback.getMensagem() + "'"                + ", "
+	                   + "(TO_DATE('" + feedback.getDataEnvio().toString() + "', 'yyyy-mm-dd')), "
+	    			   + feedback.getUsuarioReceptor()
+	                   + ")";
+
+		try {
+			Connector connector = new Connector();
+			Boolean success = connector.ExecuteUpdate(query);
 			
-	return null;
+			if (success) {
+				System.out.println("Feedback salvo!");
+			} else {
+				System.out.println("Algo deu errado");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	
 }

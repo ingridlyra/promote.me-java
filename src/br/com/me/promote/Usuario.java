@@ -76,11 +76,5 @@ public class Usuario {
 	public void setCodigoVaga(int codigoVaga) {
 		this.codigoVaga = codigoVaga;
 	}
-	
-	boolean Valido() {
-		//TODO: COLOCAR AQUI OS CASOS DE USUARIOS INVALIDOS A PARTIR DO BANCO
-		
-		return true;	
-	}
 		
 }

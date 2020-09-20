@@ -3,25 +3,25 @@ package br.com.me.promote;
 import java.time.LocalDate;
 
 public class Feedback {
-	String usuarioEnvio;
-	String usuarioReceptor;
+	int usuarioEnvio;
+	int usuarioReceptor;
 	String mensagem;
 	double nota;
 	LocalDate dataEnvio;
 	
-	public String getUsuarioEnvio() {
+	public int getUsuarioEnvio() {
 		return usuarioEnvio;
 	}
 
-	public void setUsuarioEnvio(String usuarioEnvio) {
+	public void setUsuarioEnvio(int usuarioEnvio) {
 		this.usuarioEnvio = usuarioEnvio;
 	}
 
-	public String getUsuarioReceptor() {
+	public int getUsuarioReceptor() {
 		return usuarioReceptor;
 	}
 
-	public void setUsuarioReceptor(String usuarioReceptor) {
+	public void setUsuarioReceptor(int usuarioReceptor) {
 		this.usuarioReceptor = usuarioReceptor;
 	}
 
@@ -49,8 +49,9 @@ public class Feedback {
 		this.dataEnvio = dataEnvio;
 	}
 
-	public Feedback(String usuarioEnvio, String usuarioReceptor, String mensagem, double nota, LocalDate dataEnvio) {
+	public Feedback(int usuarioEnvio, int usuarioReceptor, String mensagem, double nota, LocalDate dataEnvio) {
 		this.usuarioEnvio = usuarioEnvio;
+		this.usuarioReceptor = usuarioReceptor;
 		this.mensagem = mensagem;
 		this.nota = nota;
 		this.dataEnvio = dataEnvio;
