@@ -11,7 +11,7 @@ public class Main {
 		UsuarioDAO userDAO = new UsuarioDAO();
 		FeedbackDAO feedbackDAO = new FeedbackDAO();
 	
-		System.out.println("*** \n Bem-vindx ao Promote.me \n ***");
+		System.out.println("*** \nBem-vindx ao Promote.me \n ***");
 		
 		boolean isRunning = true;
 		int opcao;
@@ -36,10 +36,10 @@ public class Main {
 				
 				
 				if(uOpc == 1) {
-					System.out.println(sessao.getUsuario().getNomeUsuario());
-					System.out.println(sessao.getUsuario().getLogin());
-					System.out.println(sessao.getUsuario().getCodigoVaga());
-					System.out.println(sessao.getUsuario().getDtAdmissaoVaga());
+					System.out.println("Nome: " + sessao.getUsuario().getNomeUsuario());
+					System.out.println("Login: " + sessao.getUsuario().getLogin());
+					System.out.println("Cargo: " + sessao.getUsuario().getCodigoVaga());
+					System.out.println("Data de admissão: " + sessao.getUsuario().getDtAdmissaoVaga());
 					
 				} else if (uOpc == 2) {
 					System.out.print("Digite uma nova senha (deve conter 4 dígitos e ser formada apenas por números) \n");
@@ -66,18 +66,22 @@ public class Main {
 						System.out.println("Mensagem: " + feedback.getMensagem() + "\n");
 					});
 				} else if (uOpc == 2) {
-					int usuarioReceptor = 2;
-					double nota = 5;
-					String mensagem = "Vc é um cara legal";
+					int usuarioReceptor;
+					double nota;
+					String mensagem;
 					
 					userDAO.getAllUsuarios().forEach(usuario -> {
 						System.out.println(usuario.getNomeUsuario() + " " + usuario.getLogin());
 					});
 					
-					System.out.print("Digite o seu feedback para " // TODO: SUBSTITUIR AQUI C O USUARIO DE DESTINO
-							);
+					System.out.println("Para qual usuário deseja enviar um feedback?");
+					usuarioReceptor = sc1.nextInt();
+					
+					System.out.println("Digite o seu feedback para " + usuarioReceptor);
+					mensagem = sc1.next();
+					
 					System.out.print("Digite aqui a sua nota \n");
-						//TODO:COLOCAR AQUI P ATRIBUIR AO USUARIO DE DESTINO
+					nota = sc1.nextDouble();
 					
 					
 					Feedback newFeedback = new Feedback(sessao.getUsuario().getLogin(), usuarioReceptor, mensagem, nota, LocalDate.now());
