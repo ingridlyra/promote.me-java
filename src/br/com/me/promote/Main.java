@@ -78,9 +78,11 @@ public class Main {
 					usuarioReceptor = sc1.nextInt();
 					
 					System.out.println("Digite o seu feedback para " + usuarioReceptor);
-					mensagem = sc1.next();
+					sc1.nextLine();
+					String[] parts = sc1.nextLine().split("\\s+");
+					mensagem = String.join(" ",  parts);
 					
-					System.out.print("Digite aqui a sua nota \n");
+					System.out.println("Digite aqui a sua nota");
 					nota = sc1.nextDouble();
 					
 					
