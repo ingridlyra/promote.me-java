@@ -82,7 +82,12 @@ public class Main {
 				
 				
 				if(uOpc == 1) {
-					//Visualizar feedbacks recebidos
+					feedbackDAO.getFeedbacks(sessao.getUsuario().getLogin()).forEach(feedback -> {
+						Usuario enviador = userDAO.getUsuario(feedback.getUsuarioEnvio());
+						System.out.println("Enviado por: " + enviador.getNomeUsuario());
+						System.out.println("Nota: " + feedback.getNota());
+						System.out.println("Mensagem: " + feedback.getMensagem() + "\n");
+					});
 				} else if (uOpc == 2) {
 					int usuarioReceptor = 2;
 					double nota = 5;

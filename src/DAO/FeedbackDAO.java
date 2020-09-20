@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.sql.ResultSet;
 import Utils.Connector;
 import br.com.me.promote.Feedback;
@@ -33,6 +34,32 @@ public class FeedbackDAO {
 		}
 				
 		return null;
+	}
+	
+	public ArrayList<Feedback> getFeedbacks(int login) {	
+		ArrayList<Feedback> feedbacks = new ArrayList<Feedback>();
+		
+		try {
+			Connector connector = new Connector();
+			ResultSet result = connector.ExecuteQuery("SELECT * FROM " + table + " WHERE cd_login_receptor=" + login);
+				
+			while (result.next()) {
+				int usuarioEnvio = result.getInt("cd_login");
+				int usuarioReceptor = result.getInt("cd_login_receptor");
+				String descricao = result.getString("ds_feedback");
+				double nota = result.getDouble("vl_feedback");
+				LocalDate dataEnvio = result.getDate("dt_envio").toLocalDate();
+
+				feedbacks.add(new Feedback(usuarioEnvio, usuarioReceptor, descricao, nota, dataEnvio));
+			}	
+
+			connector.Close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+		return feedbacks;
 	}
 	
 	public void CreateFeedback(Feedback feedback) {
