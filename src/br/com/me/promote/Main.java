@@ -69,6 +69,7 @@ public class Main {
 					System.out.print("Digite uma nova senha (deve conter 4 dígitos e ser formada apenas por números) \n");
 					int newSenha = sc1.nextInt();
 					sessao.getUsuario().setSenhaUsuario(newSenha);
+					userDAO.UpdateUsuario(sessao.getUsuario());
 					
 				}  else {
 					System.err.print("Não há essa opção no sistema, tente novamente \n");
