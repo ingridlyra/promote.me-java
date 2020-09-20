@@ -6,31 +6,7 @@ import java.util.Scanner;
 import DAO.FeedbackDAO;
 import DAO.UsuarioDAO;
 
-public class Main {
-	
-	public static void test() {
-		UsuarioDAO userDAO = new UsuarioDAO();
-		
-		Usuario us = new Usuario(3, "carlito", 1234, 10, Categoria.colaborador, LocalDate.now());
-		
-		userDAO.CreateUsuario(us);
-		
-		us.setNomeUsuario("jose");
-		userDAO.UpdateUsuario(us);
-		
-		Usuario a = userDAO.getUsuario(3);
-		
-		System.out.println(a.getNomeUsuario());
-		
-		userDAO.DeleteUsuario(3);
-
-		Usuario b = userDAO.getUsuario(3);
-		
-		if (b == null) {
-			System.out.println("deletado");
-		}
-	}
-
+public class Main {	
 	public static void main(String[] args) {
 		UsuarioDAO userDAO = new UsuarioDAO();
 		FeedbackDAO feedbackDAO = new FeedbackDAO();
