@@ -8,7 +8,7 @@ import DAO.UsuarioDAO;
 
 /* Essa classe é a classe principal do sistema, sendo responsável pela conexão direta com o usuário e por chamar todas as funções do sistema.
  * @author Ingrid Lyra
- * @since 2ª entrega do 2º semestre da challenge 2020
+ * @since 1ª entrega do 2º semestre da challenge 2020
  */
 
 public class Main {	
