@@ -1,5 +1,9 @@
 package br.com.me.promote;
 
+/* Essa classe cria um objeto do tipo Vaga
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
+
 public class Vaga {
 	private int cdVaga;
 	private String titulo;
