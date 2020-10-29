@@ -7,11 +7,27 @@ import java.sql.Statement;
 import java.sql.SQLException;
 
 public class Connector {
-	Connection con;
-	String oracleServer = "oracle.fiap.com.br";
-	String databaseName = "orcl";
-	String databaseUser = "RM84810";
-	String databasePass = "170100";
+	private Connection con;
+	private String oracleServer = "oracle.fiap.com.br";
+	private String databaseName = "orcl";
+	private String databaseUser = "RM84810";
+	private String databasePass = "170100";
+	
+	private static Connector instancia = null;
+	
+	public synchronized static Connector getInstancia() {
+		if(instancia == null) {
+			try {
+				instancia = new Connector();
+			} catch (SQLException e) {
+				System.out.println("Já existe uma instância!");
+				e.printStackTrace();
+			}
+		}
+		
+		return instancia;
+	}
+	
 	
 	public Connector() throws SQLException {
 		try {
