@@ -6,6 +6,11 @@ import java.util.Scanner;
 import DAO.FeedbackDAO;
 import DAO.UsuarioDAO;
 
+/* Essa classe é a classe principal do sistema, sendo responsável pela conexão direta com o usuário e por chamar todas as funções do sistema.
+ * @author Ingrid Lyra
+ * @since 2ª entrega do 2º semestre da challenge 2020
+ */
+
 public class Main {	
 	public static void main(String[] args) {
 		UsuarioDAO userDAO = new UsuarioDAO();
@@ -16,6 +21,12 @@ public class Main {
 		boolean isRunning = true;
 		int opcao;
 		Scanner sc1 = new Scanner(System.in);
+		
+		/** A partir daqui, há um menu de opções para o usuário.
+		 * As opções para o usuário serão relacionadas ao próprio perfil(opção 1) ou a feedbacks(opção 2):
+		 * dentro da opção 1, o usuário poderá visualizar as informações do seu perfil ou alterar a senha(visto que a ideia é que novos usuários
+		 * sejam cadastrados diretamente no banco de dados).
+		 * Na opção 2, o usuário poderá escolher visualizar os feedbacks que ele recebeu, ou enviar um feedback para alguém da sua equipe   */
 		
 		Login sessao = new Login(sc1);
 		while(!sessao.isValido()) {
