@@ -1,6 +1,6 @@
 package br.com.me.promote;
 
-/* Essa classe cria um objeto do tipo Vaga
+/* Essa classe define um objeto do tipo Vaga.
  * @since 1ª entrega do 2º semestre da challenge 2020
  */
 
