@@ -5,9 +5,13 @@ import java.sql.ResultSet;
 import Utils.Connector;
 import br.com.me.promote.Vaga;
 
+/* Essa classe cria um objeto do tipo Vaga a partir da tabela T_PM_VAGA do banco de dados, além de realizar o CRUD deste objeto.
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
 public class VagaDAO {
 String table = "T_PM_VAGA";
-	
+
+	/** Método de criar um objeto Vaga (RESEARCH in CRUD) */	
 	public Vaga getVaga(int cd_vaga) {		
 		try {
 			Connector connector = new Connector();
@@ -30,6 +34,7 @@ String table = "T_PM_VAGA";
 		return null;
 	}
 	
+	/** Método de criar uma vaga (CREATE in CRUD) */
 	public void CreateUsuario(Vaga vaga) {
 		String query = "INSERT INTO " + table + " (cd_vaga, nm_vaga, cd_carreira ) "
 	                   + "VALUES ("
@@ -53,6 +58,8 @@ String table = "T_PM_VAGA";
 		}
 	}
 	
+	
+	/** Método de atualizar uma vaga (UPDATE in CRUD) */
 	public Boolean UpdateVaga(Vaga newVaga) {
 		String query = "UPDATE " + table + " SET "
 				+ "cd_vaga=" + newVaga.getCdVaga()     +  ","
@@ -78,6 +85,8 @@ String table = "T_PM_VAGA";
 		return false;
 	}
 	
+	
+	/** Método de excluir uma vaga (DELETE in CRUD) */
 	public Boolean DeleteVaga(int vaga) {
 		String query = "DELETE FROM " + table + " WHERE cd_vaga=" + vaga;
 
