@@ -1,4 +1,4 @@
-package DAO;
+package banco;
 
 import java.sql.SQLException;
 import java.sql.ResultSet;
