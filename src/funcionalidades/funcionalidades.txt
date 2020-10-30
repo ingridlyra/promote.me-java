@@ -1,0 +1,11 @@
+Foram executadas 2 funcionalidades: a de feedback e a de login do usuário/modificação de dados pessoais.
+
+Para realizar o login, o usuário deverá ser previamente cadastrado no banco de dados com as informações necessárias sobre ele, incluindo login e 
+senha.
+
+Ao entrar no sistema, o usuário poderá escolher 2 opções: relacionadas ao seu perfil (visualizar o seu próprio perfil e os seus dados ou 
+alterar sua senha de login, para garantir maior segurança) ou de feedback (enviar um feedback para algum usuário já previamente cadastrado no banco
+ou visualizar os feedbacks que ele recebeu).
+
+No envio do feedback, será necessário passar uma nota e um texto, além de haver a opção de enviar um feedback anonimamente (no sistema é salvo, in-
+dependentemente o usuário que enviou o feedback, mas o remetente não é exibido para o destinatário).
