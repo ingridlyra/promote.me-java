@@ -2,6 +2,10 @@ package br.com.me.promote;
 
 import java.time.LocalDate;
 
+/* Essa classe define um objeto do tipo Usuario.
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
+
 public class Usuario {
 	private int login;
 	private String nomeUsuario;
