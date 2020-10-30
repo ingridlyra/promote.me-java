@@ -1,10 +1,9 @@
-package banco;
+package lib;
 
 import java.sql.SQLException;
 import java.sql.ResultSet;
 
 import br.com.me.promote.Vaga;
-import lib.Connector;
 
 /* Essa classe cria um objeto do tipo Vaga a partir da tabela T_PM_VAGA do banco de dados, além de realizar o CRUD deste objeto.
  * @since 1ª entrega do 2º semestre da challenge 2020
