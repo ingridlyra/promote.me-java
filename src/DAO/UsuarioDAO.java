@@ -4,9 +4,10 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.sql.ResultSet;
-import Utils.Connector;
+
 import br.com.me.promote.Categoria;
 import br.com.me.promote.Usuario;
+import lib.Connector;
 
 public class UsuarioDAO {
 	String table = "T_PM_USUARIO";
