@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 import DAO.UsuarioDAO;
 
+/* Essa classe define os requisitos e o sistema de login.
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
+
 public class Login {
 	Scanner sc;
 	private int user;
@@ -42,7 +46,8 @@ public class Login {
 	public void setPassword(int password) {
 		this.password = password;
 	}
-	
+
+	/** Método de pedir os dados de login ao usuário e validar para logar */
 	public void logar() {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
