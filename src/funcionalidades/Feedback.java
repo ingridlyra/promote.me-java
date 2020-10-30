@@ -1,4 +1,4 @@
-package br.com.me.promote;
+package funcionalidades;
 
 import java.time.LocalDate;
 

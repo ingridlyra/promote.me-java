@@ -1,4 +1,4 @@
-package br.com.me.promote;
+package funcionalidades;
 
 /* Essa classe define um objeto do tipo Vaga.
  * @since 1ª entrega do 2º semestre da challenge 2020
