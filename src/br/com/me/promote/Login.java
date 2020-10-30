@@ -2,7 +2,7 @@ package br.com.me.promote;
 
 import java.util.Scanner;
 
-import banco.UsuarioDAO;
+import lib.UsuarioDAO;
 
 /* Essa classe define os requisitos e o sistema de login.
  * @since 1ª entrega do 2º semestre da challenge 2020

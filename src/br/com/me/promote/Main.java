@@ -3,8 +3,8 @@ package br.com.me.promote;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import banco.FeedbackDAO;
-import banco.UsuarioDAO;
+import lib.FeedbackDAO;
+import lib.UsuarioDAO;
 
 /* Essa classe é a classe principal do sistema, sendo responsável pela conexão direta com o usuário e por chamar todas as funções do sistema.
  * @since 1ª entrega do 2º semestre da challenge 2020
