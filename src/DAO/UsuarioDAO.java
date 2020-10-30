@@ -9,9 +9,14 @@ import br.com.me.promote.Categoria;
 import br.com.me.promote.Usuario;
 import lib.Connector;
 
+/* Essa classe cria um objeto do tipo Usuario a partir da tabela T_PM_USUARIO do banco de dados, além de realizar o CRUD deste objeto.
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
+
 public class UsuarioDAO {
 	String table = "T_PM_USUARIO";
 	
+	/** Método de criar um objeto Usuario (RESEARCH in CRUD) */
 	public Usuario getUsuario(int cd_login) {		
 		try {
 			Connector connector = new Connector();
@@ -36,7 +41,8 @@ public class UsuarioDAO {
 		
 		return null;
 	}
-	
+
+	/** Método de criar um array de usuarios */
 	public ArrayList<Usuario> getAllUsuarios() {
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
@@ -62,6 +68,8 @@ public class UsuarioDAO {
 		return usuarios;
 	}
 	
+	
+	/** Método de criar um Usuario (CREATE in CRUD) */
 	public void CreateUsuario(Usuario usuario) {
 		String query = "INSERT INTO " + table + " (cd_login, cd_vaga, cd_senha, nm_usuario, ds_categoria, dt_admissao_vag) "
 	                   + "VALUES ("
@@ -89,6 +97,7 @@ public class UsuarioDAO {
 		}
 	}
 	
+	/** Método de atualizar um Usuario (UPDATE in CRUD) */
 	public Boolean UpdateUsuario(Usuario newUsuario) {
 		String query = "UPDATE " + table + " SET "
 				+ "cd_vaga=" + newUsuario.getCodigoVaga()     +  ","
@@ -116,6 +125,7 @@ public class UsuarioDAO {
 		return false;
 	}
 	
+	/** Método de excluir uma vaga (DELETE in CRUD) */
 	public Boolean DeleteUsuario(int login) {
 		String query = "DELETE FROM " + table + " WHERE cd_login=" + login;
 
