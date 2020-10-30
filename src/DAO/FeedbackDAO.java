@@ -9,9 +9,14 @@ import br.com.me.promote.Feedback;
 import br.com.me.promote.Usuario;
 import lib.Connector;
 
+/* Essa classe cria um objeto do tipo Feedback a partir da tabela T_PM_FEEDBACK do banco de dados, além de realizar o CRUD deste objeto.
+ * @since 1ª entrega do 2º semestre da challenge 2020
+ */
+
 public class FeedbackDAO {
 	String table = "T_PM_FEEDBACK";
 	
+	/** Método de criar um objeto Feedback (RESEARCH in CRUD) */
 	public Feedback getFeedback(int cd_feedback) {	
 		try {
 			Connector connector = new Connector();
@@ -37,6 +42,7 @@ public class FeedbackDAO {
 		return null;
 	}
 	
+	/** Método de criar um array de feedbacks */
 	public ArrayList<Feedback> getFeedbacks(int login) {	
 		ArrayList<Feedback> feedbacks = new ArrayList<Feedback>();
 		
@@ -62,7 +68,7 @@ public class FeedbackDAO {
 				
 		return feedbacks;
 	}
-	
+	/** Método de criar um Feedback (CREATE in CRUD) */
 	public void CreateFeedback(Feedback feedback) {
 		String query = "INSERT INTO " + table + " (cd_login, vl_feedback, ds_feedback, dt_envio, cd_login_receptor) "
 	                   + "VALUES ("
@@ -88,6 +94,9 @@ public class FeedbackDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	/** É importante salientar que não há os métodos de update e delete nessa classe, pois a ideia é que, uma vez enviado um feedback, ele
+	 * permaneça no banco de dados exatamente como enviado*/
 	
 	
 }
