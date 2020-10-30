@@ -3,10 +3,11 @@ package lib;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.sql.ResultSet;
 
-import br.com.me.promote.Categoria;
-import br.com.me.promote.Usuario;
+import funcionalidades.Categoria;
+import funcionalidades.Usuario;
+
+import java.sql.ResultSet;
 
 /* Essa classe cria um objeto do tipo Usuario a partir da tabela T_PM_USUARIO do banco de dados, além de realizar o CRUD deste objeto.
  * @since 1ª entrega do 2º semestre da challenge 2020
