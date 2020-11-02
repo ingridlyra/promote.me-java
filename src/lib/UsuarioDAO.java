@@ -102,7 +102,7 @@ public class UsuarioDAO {
 		String query = "UPDATE " + table + " SET "
 				+ "cd_vaga=" + newUsuario.getCodigoVaga()     +  ","
 				+ "cd_senha=" + newUsuario.getSenhaUsuario()  +  ","
-				+ "nm_usuario='" + newUsuario.getNomeUsuario() + "',"
+				+ "nm_usuario='" + newUsuario.getNomeUsuario() + ","
 				+ "dt_admissao_vag=(TO_DATE('" + newUsuario.getDtAdmissaoVaga().toString() + "', 'yyyy-mm-dd'))"
 				+ "WHERE cd_login=" + newUsuario.getLogin();
 

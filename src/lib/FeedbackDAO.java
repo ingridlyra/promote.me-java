@@ -16,7 +16,9 @@ import java.sql.ResultSet;
 public class FeedbackDAO {
 	String table = "T_PM_FEEDBACK";
 	
-	/** Método de criar um objeto Feedback (RESEARCH in CRUD) */
+	/** Método de criar um objeto Feedback (RESEARCH in CRUD) 
+	 * @throws SQLException
+	 * */
 	public Feedback getFeedback(int cd_feedback) {	
 		try {
 			Connector connector = new Connector();
