@@ -1,5 +1,6 @@
 package funcionalidades;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import lib.UsuarioDAO;
@@ -51,19 +52,23 @@ public class Login {
 	public void logar() {
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		System.out.println("Digite seu usuário: \n");
-		setUser(sc.nextInt());
-	
-		System.out.println("Digite sua senha: \n");
-		setPassword(sc.nextInt());
+		try {	
+			System.out.println("Digite seu usuário: \n");
+			setUser(Integer.parseInt(sc.nextLine()));
 		
-		Usuario u = usuarioDAO.getUsuario(this.getUser());
-		
-		if (u != null && (u.getSenhaUsuario() == this.getPassword())) {
-			this.setValido(true);
-			this.usuario = u;
-		} else {
-			System.err.println("Credencias invalidas");
+			System.out.println("Digite sua senha: \n");
+			setPassword(Integer.parseInt(sc.nextLine()));
+			
+			Usuario u = usuarioDAO.getUsuario(this.getUser());
+			
+			if (u != null && (u.getSenhaUsuario() == this.getPassword())) {
+				this.setValido(true);
+				this.usuario = u;
+			} else {
+				System.err.println("Credenciais invalidas");
+			}
+		} catch (NumberFormatException e) {
+			System.err.println("Dados de login devem ser do tipo inteiro");
 		}
 	}
 }
