@@ -12,7 +12,12 @@ import java.sql.ResultSet;
 public class VagaDAO {
 String table = "T_PM_VAGA";
 
-	/** Método de criar um objeto Vaga (RESEARCH in CRUD) */	
+	/** Método de criar um objeto Vaga (RESEARCH in CRUD)  
+	 *  
+	 * @return null
+	 * 
+	 * @throw SQLException
+	 * */	
 	public Vaga getVaga(int cd_vaga) {		
 		try {
 			Connector connector = new Connector();
@@ -35,7 +40,12 @@ String table = "T_PM_VAGA";
 		return null;
 	}
 	
-	/** Método de criar uma vaga (CREATE in CRUD) */
+	/** Método de criar uma vaga (CREATE in CRUD) 
+	 * 
+	 * @return void
+	 * 
+	 * @throw SQLException
+	 * */
 	public void CreateUsuario(Vaga vaga) {
 		String query = "INSERT INTO " + table + " (cd_vaga, nm_vaga, cd_carreira ) "
 	                   + "VALUES ("
@@ -60,7 +70,12 @@ String table = "T_PM_VAGA";
 	}
 	
 	
-	/** Método de atualizar uma vaga (UPDATE in CRUD) */
+	/** Método de atualizar uma vaga (UPDATE in CRUD) 
+	 * 
+	 * @return Boolean
+	 * 
+	 * @throw SQLException
+	 * */
 	public Boolean UpdateVaga(Vaga newVaga) {
 		String query = "UPDATE " + table + " SET "
 				+ "cd_vaga=" + newVaga.getCdVaga()     +  ","
@@ -87,7 +102,12 @@ String table = "T_PM_VAGA";
 	}
 	
 	
-	/** Método de excluir uma vaga (DELETE in CRUD) */
+	/** Método de excluir uma vaga (DELETE in CRUD) 
+	 *   
+	 * @return Boolean
+	 * 
+	 * @throw SQLException
+	 * */
 	public Boolean DeleteVaga(int vaga) {
 		String query = "DELETE FROM " + table + " WHERE cd_vaga=" + vaga;
 

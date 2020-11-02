@@ -17,7 +17,10 @@ public class FeedbackDAO {
 	String table = "T_PM_FEEDBACK";
 	
 	/** Método de criar um objeto Feedback (RESEARCH in CRUD) 
-	 * @throws SQLException
+	 * 
+	 * @return Feedback
+	 * 
+	 * @throw SQLException
 	 * */
 	public Feedback getFeedback(int cd_feedback) {	
 		try {
@@ -44,7 +47,12 @@ public class FeedbackDAO {
 		return null;
 	}
 	
-	/** Método de criar um array de feedbacks */
+	/** Método de criar um array de feedbacks 
+	 *
+	 * @return ArrayList de Feedback
+	 * 
+	 * @throw SQLException
+	 * */
 	public ArrayList<Feedback> getFeedbacks(int login) {	
 		ArrayList<Feedback> feedbacks = new ArrayList<Feedback>();
 		
@@ -70,7 +78,12 @@ public class FeedbackDAO {
 				
 		return feedbacks;
 	}
-	/** Método de criar um Feedback (CREATE in CRUD) */
+	/** Método de criar um Feedback (CREATE in CRUD) 
+	 * 
+	 * @return void
+	 * 
+	 * @throw SQLException
+	 * */
 	public void CreateFeedback(Feedback feedback) {
 		String query = "INSERT INTO " + table + " (cd_login, vl_feedback, ds_feedback, dt_envio, cd_login_receptor) "
 	                   + "VALUES ("
@@ -98,7 +111,8 @@ public class FeedbackDAO {
 	}
 	
 	/** É importante salientar que não há os métodos de update e delete nessa classe, pois a ideia é que, uma vez enviado um feedback, ele
-	 * permaneça no banco de dados exatamente como enviado*/
+	 * permaneça no banco de dados exatamente como enviado
+	 * */
 	
 	
 }

@@ -16,7 +16,12 @@ import java.sql.ResultSet;
 public class UsuarioDAO {
 	String table = "T_PM_USUARIO";
 	
-	/** Método de criar um objeto Usuario (RESEARCH in CRUD) */
+	/** Método de criar um objeto Usuario (RESEARCH in CRUD) 
+	 * 
+	 *  @return null or Usuario
+	 * 
+	 * @throw SQLException
+	 * */
 	public Usuario getUsuario(int cd_login) {		
 		try {
 			Connector connector = new Connector();
@@ -42,7 +47,12 @@ public class UsuarioDAO {
 		return null;
 	}
 
-	/** Método de criar um array de usuarios */
+	/** Método de criar um array de usuarios 
+	 * 
+	 * @return ArrayList de usuarios
+	 * 
+	 * @throw SQLException
+	 * */
 	public ArrayList<Usuario> getAllUsuarios() {
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
@@ -69,7 +79,12 @@ public class UsuarioDAO {
 	}
 	
 	
-	/** Método de criar um Usuario (CREATE in CRUD) */
+	/** Método de criar um Usuario (CREATE in CRUD) 
+	 * 
+	 * @return void
+	 * 
+	 * @throw SQLException
+	 * */
 	public void CreateUsuario(Usuario usuario) {
 		String query = "INSERT INTO " + table + " (cd_login, cd_vaga, cd_senha, nm_usuario, ds_categoria, dt_admissao_vag) "
 	                   + "VALUES ("
@@ -97,7 +112,12 @@ public class UsuarioDAO {
 		}
 	}
 	
-	/** Método de atualizar um Usuario (UPDATE in CRUD) */
+	/** Método de atualizar um Usuario (UPDATE in CRUD) 
+	 * 
+	 * @return Boolean
+	 * 
+	 * @throw SQLException
+	 * */
 	public Boolean UpdateUsuario(Usuario newUsuario) {
 		String query = "UPDATE " + table + " SET "
 				+ "cd_vaga=" + newUsuario.getCodigoVaga()     +  ","
@@ -125,7 +145,12 @@ public class UsuarioDAO {
 		return false;
 	}
 	
-	/** Método de excluir uma vaga (DELETE in CRUD) */
+	/** Método de excluir uma vaga (DELETE in CRUD) 
+	 * 
+	 * @return Boolean
+	 * 
+	 * @throw SQLException
+	 * */
 	public Boolean DeleteUsuario(int login) {
 		String query = "DELETE FROM " + table + " WHERE cd_login=" + login;
 
