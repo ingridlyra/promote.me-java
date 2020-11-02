@@ -27,6 +27,8 @@ public class Main {
 		 * sejam cadastrados diretamente no banco de dados).
 		 * Na opção 2, o usuário poderá escolher visualizar os feedbacks que ele recebeu, ou enviar um feedback para alguém da sua equipe   */
 		
+		PerfilBO perfilBO = new PerfilBO();
+		
 		Login sessao = new Login(sc1);
 		while(!sessao.isValido()) {
 			sessao.logar();			
@@ -46,16 +48,12 @@ public class Main {
 				
 				
 				if(uOpc == 1) {
-					System.out.println("Nome: " + sessao.getUsuario().getNomeUsuario());
-					System.out.println("Login: " + sessao.getUsuario().getLogin());
-					System.out.println("Cargo: " + sessao.getUsuario().getCodigoVaga());
-					System.out.println("Data de admissão: " + sessao.getUsuario().getDtAdmissaoVaga());
-					
+					perfilBO.verPerfil(sessao.getUsuario());
+			
 				} else if (uOpc == 2) {
 					System.out.print("Digite uma nova senha (deve conter 4 dígitos e ser formada apenas por números) \n");
 					int newSenha = sc1.nextInt();
-					sessao.getUsuario().setSenhaUsuario(newSenha);
-					userDAO.UpdateUsuario(sessao.getUsuario());
+					perfilBO.updateSenha(sessao.getUsuario(), newSenha);
 					
 				}  else {
 					System.err.print("Não há essa opção no sistema, tente novamente \n");
