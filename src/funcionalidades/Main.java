@@ -28,6 +28,7 @@ public class Main {
 		 * Na opção 2, o usuário poderá escolher visualizar os feedbacks que ele recebeu, ou enviar um feedback para alguém da sua equipe   */
 		
 		PerfilBO perfilBO = new PerfilBO();
+		FeedbackBO feedbackBO = new FeedbackBO();
 		
 		Login sessao = new Login(sc1);
 		while(!sessao.isValido()) {
@@ -67,36 +68,11 @@ public class Main {
 				
 				
 				if(uOpc == 1) {
-					feedbackDAO.getFeedbacks(sessao.getUsuario().getLogin()).forEach(feedback -> {
-						Usuario enviador = userDAO.getUsuario(feedback.getUsuarioEnvio());
-						System.out.println("Enviado por: " + enviador.getNomeUsuario());
-						System.out.println("Nota: " + feedback.getNota());
-						System.out.println("Mensagem: " + feedback.getMensagem() + "\n");
-					});
+					feedbackBO.VerFeedback(sessao.getUsuario());
+					
 				} else if (uOpc == 2) {
-					int usuarioReceptor;
-					double nota;
-					String mensagem;
+					feedbackBO.enviarFeedback(sessao.getUsuario(), sc1);
 					
-					userDAO.getAllUsuarios().forEach(usuario -> {
-						System.out.println(usuario.getNomeUsuario() + " " + usuario.getLogin());
-					});
-					
-					System.out.println("Para qual usuário deseja enviar um feedback?");
-					usuarioReceptor = sc1.nextInt();
-					
-					System.out.println("Digite o seu feedback para " + usuarioReceptor);
-					sc1.nextLine();
-					String[] parts = sc1.nextLine().split("\\s+");
-					mensagem = String.join(" ",  parts);
-					
-					System.out.println("Digite aqui a sua nota");
-					nota = sc1.nextDouble();
-					
-					
-					Feedback newFeedback = new Feedback(sessao.getUsuario().getLogin(), usuarioReceptor, mensagem, nota, LocalDate.now());
-				
-					feedbackDAO.CreateFeedback(newFeedback);
 				} else {
 					System.err.print("Não há essa opção no sistema, tente novamente \n");
 				}
