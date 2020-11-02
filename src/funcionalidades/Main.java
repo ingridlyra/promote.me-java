@@ -19,7 +19,6 @@ public class Main {
 		
 		boolean isRunning = true;
 		int opcao;
-		Scanner sc1 = new Scanner(System.in);
 		
 		/** A partir daqui, há um menu de opções para o usuário.
 		 * As opções para o usuário serão relacionadas ao próprio perfil(opção 1) ou a feedbacks(opção 2):
@@ -29,10 +28,12 @@ public class Main {
 		
 		PerfilBO perfilBO = new PerfilBO();
 		FeedbackBO feedbackBO = new FeedbackBO();
+		UsuarioBO usuarioBO = new UsuarioBO();
+		Scanner sc1 = new Scanner(System.in);
 		
-		Login sessao = new Login(sc1);
+		Login sessao = new Login();
 		while(!sessao.isValido()) {
-			sessao.logar();			
+			usuarioBO.logar(sessao, sc1);			
 		}
 		
 		System.out.println("Bem-vindo, " + sessao.getUsuario().getNomeUsuario() + "!");

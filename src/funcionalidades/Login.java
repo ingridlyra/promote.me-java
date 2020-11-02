@@ -10,15 +10,15 @@ import lib.UsuarioDAO;
  */
 
 public class Login {
-	Scanner sc;
 	private int user;
 	private int password;
 	private Usuario usuario;
 	private boolean valido = false;
 	
-	public Login(Scanner sc) {
-		this.sc = sc;
-	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}	
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -49,26 +49,4 @@ public class Login {
 	}
 
 	/** Método de pedir os dados de login ao usuário e validar para logar */
-	public void logar() {
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		
-		try {	
-			System.out.println("Digite seu usuário: \n");
-			setUser(Integer.parseInt(sc.nextLine()));
-		
-			System.out.println("Digite sua senha: \n");
-			setPassword(Integer.parseInt(sc.nextLine()));
-			
-			Usuario u = usuarioDAO.getUsuario(this.getUser());
-			
-			if (u != null && (u.getSenhaUsuario() == this.getPassword())) {
-				this.setValido(true);
-				this.usuario = u;
-			} else {
-				System.err.println("Credenciais invalidas");
-			}
-		} catch (NumberFormatException e) {
-			System.err.println("Dados de login devem ser do tipo inteiro");
-		}
-	}
 }
